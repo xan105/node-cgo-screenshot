@@ -24,5 +24,6 @@ API
 ---
 
 `screenshot(string dir, string filename) <promise>string`
-Take a screenshot in .png (dir/filename.png)
+
+Take a screenshot in .png (dir/filename.png)<br/>
 Returns png filepath.
