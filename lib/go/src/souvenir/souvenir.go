@@ -3,40 +3,34 @@
 package main
 
  import (
-  "log"
   "C"
-  "path/filepath"
   "screenshot"
   "image"
   "image/png"
   "os"
-  "fmt"
-  "strings"
  )
  
  //export capture
- func capture(dirPath *C.char, fileName *C.char) *C.char {
- 
-  filter := [2]string{"\\/:", "*?\"<>|\n\r\t"} //Invalid Windows path symbols
-  dir := clean(C.GoString(dirPath),filter[1])
-  name := clean(C.GoString(fileName),filter[0]+filter[1])
+ func capture(filePath *C.char) C.uint {
 
   bounds := getCurrentActiveDisplay()
   img, err := screenshot.CaptureRect(bounds)
- 		if err != nil {
- 			log.Fatal(err)
- 		}
-  err = os.MkdirAll(dir, os.ModePerm)
- 		if err != nil {
- 			log.Fatal(err)
- 		}
- 		
-   target:= fmt.Sprintf("%s.png", name)
-   pngPath := filepath.Join(dir,target)
-   file, _ := os.Create(pngPath)
-   defer file.Close()
-   png.Encode(file, img)
-   return C.CString(pngPath)
+ 	if err != nil {
+ 		return C.uint(1)
+ 	}
+ 	
+  file, err := os.Create(C.GoString(filePath))
+    if err != nil {
+ 		return C.uint(2)
+ 	}
+  defer file.Close()
+  
+  err = png.Encode(file, img)
+    if err != nil {
+ 		return C.uint(3)
+ 	}
+ 	
+   return C.uint(0)
  }
  
 func getCurrentActiveDisplay() image.Rectangle {
@@ -52,14 +46,5 @@ func getCurrentActiveDisplay() image.Rectangle {
 	
 	return bounds
 }
- 
- func clean(str, chr string) string {
-    return strings.Map(func(r rune) rune {
-        if strings.IndexRune(chr, r) < 0 {
-            return r
-        }
-        return -1
-    }, str)
- }
- 
- func main() {}
+
+func main() {}

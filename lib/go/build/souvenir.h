@@ -69,7 +69,7 @@ extern "C" {
 #endif
 
 
-extern char* capture(char* p0, char* p1);
+extern unsigned int capture(char* p0);
 
 #ifdef __cplusplus
 }
