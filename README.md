@@ -24,8 +24,9 @@ API
 ---
 
 `screenshot(string filepath, [bool overwrite = false]) <promise>string`
-Take a screenshot in .png at given location.
-Doesn't overwrite if it already exists (default) unless you set overwrite to true.
-Returns png filepath.
+
+Take a screenshot in .png at given location.<br/>
+Doesn't overwrite if it already exists (default) unless you set overwrite to true.<br/>
+Returns png filepath.<br/>
 
 NB: filepath extension will be enforced to '.png'
