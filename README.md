@@ -4,9 +4,7 @@ Install
 -------
 
 ```
-npm install https://github.com/xan105/node-cgo-screenshot
-//or
-npm install xan105/node-cgo-screenshot
+npm install @xan105/screenshot
 ```
 
 Example
