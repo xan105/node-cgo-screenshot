@@ -1,7 +1,5 @@
 .github/
 .eslintrc.json
-lib/go/pkg/
-lib/go/src/
-lib/go/*.cmd
-lib/go/build/*.h
+lib/go/
+lib/dist/*.h
 test/

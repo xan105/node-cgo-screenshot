@@ -1,6 +1,6 @@
 {
   "name": "@xan105/screenshot",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "Take a screenshot of the active display in .png",
   "type": "module",
   "main": "./lib/index.cjs",
@@ -18,7 +18,8 @@
     "node": ">=0.12"
   },
   "scripts": {
-    "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}"
+    "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}",
+    "build": "call lib/go/build.cmd"
   },
   "keywords": [
     "go",
@@ -45,6 +46,6 @@
     "eslint": "^7.6.0"
   },
   "dependencies": {
-    "ffi-napi": "^3.0.1"
+    "ffi-napi": "^4.0.3"
   }
 }
