@@ -1,6 +1,6 @@
 {
   "name": "@xan105/screenshot",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "Take a screenshot of the active display in .png",
   "type": "module",
   "main": "./lib/index.cjs",
