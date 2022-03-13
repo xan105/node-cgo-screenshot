@@ -1,13 +1,10 @@
 {
   "name": "@xan105/screenshot",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Take a screenshot of the active display in .png",
   "type": "module",
-  "main": "./lib/index.cjs",
-  "exports": {
-    "import": "./lib/esm.mjs",
-    "require": "./lib/index.cjs"
-  },
+  "exports": "./lib/index.js",
+  "types": "./types/index.d.ts",
   "os": [
     "win32"
   ],
@@ -15,10 +12,10 @@
     "x64"
   ],
   "engines": {
-    "node": ">=0.12"
+    "node": ">=16.0.0"
   },
   "scripts": {
-    "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}",
+    "lint": "npx eslint --ignore-path .gitignore ./**/*.{js,mjs}",
     "build": "call lib/go/build.cmd"
   },
   "keywords": [
@@ -43,9 +40,12 @@
   },
   "homepage": "https://github.com/xan105/node-cgo-screenshot#readme",
   "devDependencies": {
-    "eslint": "^7.6.0"
+    "eslint": "^8.11.0"
   },
   "dependencies": {
+    "@xan105/error": "^1.2.0",
+    "@xan105/fs": "^2.0.4",
+    "@xan105/is": "^2.4.0",
     "ffi-napi": "^4.0.3"
   }
 }
